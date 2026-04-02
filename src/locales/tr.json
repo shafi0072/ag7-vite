@@ -1,0 +1,42 @@
+{
+  "nav": { "home": "Ana Sayfa", "chat": "Sohbet", "tasks": "Görevler", "calendar": "Takvim", "settings": "Ayarlar", "logout": "Çıkış" },
+  "auth": {
+    "login": { "subtitle": "Hesabınıza giriş yapın", "email": "E-posta", "password": "Şifre", "submit": "Giriş Yap", "submitting": "Giriş yapılıyor...", "noAccount": "Hesabınız yok mu?", "signUp": "Kaydol" },
+    "signup": { "subtitle": "Hesabınızı oluşturun", "email": "E-posta", "password": "Şifre", "confirmPassword": "Şifreyi onayla", "passwordMismatch": "Şifreler uyuşmuyor", "passwordTooShort": "Şifre en az 6 karakter olmalıdır", "submit": "Hesap Oluştur", "submitting": "Hesap oluşturuluyor...", "hasAccount": "Zaten hesabınız var mı?", "signIn": "Giriş Yap" }
+  },
+  "onboarding": {
+    "language": { "title": "Dil Seç", "subtitle": "Arayüz ve ajan iletişimi için tercih ettiğiniz dili seçin." },
+    "timezone": { "title": "Saat Dilimi Ayarla", "subtitle": "Bunu görevlerinizi ve günlük senkronizasyonlarınızı koordine etmek için kullanacağız." },
+    "name": { "title": "Adınız nedir?", "subtitle": "Ajanınız ve sistem sizi bu şekilde hitap edecek.", "label": "Tam Ad", "placeholder": "Adınızı girin", "hint": "Adınız panonuzu kişiselleştirmek için kullanılacak." },
+    "agent": { "title": "Ajanınızı adlandırın", "subtitle": "Kişisel YZ asistanınıza benzersiz bir kimlik verin.", "label": "Ajan Adı", "placeholder": "Ajan adını girin" },
+    "back": "Geri", "continue": "Devam Et", "getStarted": "Başla", "terms": "Devam ederek", "termsLink": "Hizmet Şartlarımızı", "and": "ve", "privacyLink": "Gizlilik Politikamızı", "setup": "Kurulum 60 saniyeden az sürer."
+  },
+  "tasks": {
+    "title": "Görevler", "subtitle": "Ajan ekibinizin görevlerini yönetin", "liveFeed": "Canlı Akış", "addTask": "Görev Ekle",
+    "columns": { "backlog": "Birikmiş İşler", "todo": "Yapılacak", "inProgress": "Devam Ediyor", "done": "Tamamlandı" },
+    "modal": { "title": "Görev Ekle", "titleLabel": "Başlık", "titlePlaceholder": "Görev başlığı", "description": "Açıklama", "descriptionPlaceholder": "Görev açıklaması (isteğe bağlı)", "column": "Sütun", "assignAgent": "Ajan ata (isteğe bağlı)", "selectAgent": "Ajan seç", "recurring": "Tekrarlayan görev", "repeat": "Tekrarla", "daily": "Günlük", "weekly": "Haftalık", "monthly": "Aylık", "cancel": "İptal", "add": "Görev Ekle" }
+  },
+  "dashboard": {
+    "tasksDone": { "title": "Tamamlanan Görevler", "outOf": "/", "excellent": "Mükemmel", "details": "Detaylar" },
+    "container": { "title": "OpenClaw Bot'unuz", "loading": "Durum yükleniyor...", "notDeployed": "Hiçbir bot dağıtılmadı", "deploySubtitle": "Kişisel YZ ajanınızı saniyeler içinde dağıtın", "deployNow": "Şimdi Dağıt", "deploying": "Dağıtılıyor...", "settingUp": "Konteyneriniz ayarlanıyor...", "settingUpSubtitle": "Bu bir an sürebilir", "running": "Çalışıyor", "started": "Başlatıldı", "stop": "Durdur", "restart": "Yeniden Başlat", "openBot": "Botu Aç", "stopped": "Durduruldu", "start": "Başlat", "delete": "Sil", "error": "Bir şeyler ters gitti", "errorSubtitle": "Konteynerinizde bir hata oluştu", "retryDeploy": "Yeniden Dağıt" }
+  },
+  "settings": {
+    "title": "Ayarlar", "subtitle": "Hesabınızı ve aboneliğinizi yönetin", "accounts": "Hesaplar", "resources": "Kaynaklar",
+    "channels": { "title": "Mesaj göndermek için hangi kanalı kullanmak istiyorsunuz?", "connected": "Bağlandı", "comingSoon": "Yakında", "edit": "Düzenle" },
+    "email": { "title": "E-posta Bildirimleri", "subtitle": "Görev güncellemelerini ve bahsetmeleri e-posta ile alın", "addEmail": "E-posta Ekle" },
+    "languages": "Diller",
+    "profile": { "title": "Profilim", "subtitle": "Ajanlarınızın beklentilerinizi ve tercih ettiğiniz iletişim stilini anlamasına yardımcı olun.", "editProfile": "Profili Düzenle" },
+    "usage": { "title": "Mevcut Kullanım", "workspaces": "Çalışma Alanları", "agents": "Ajanlar", "storage": "Yerel Depolama" }
+  },
+  "editProfile": {
+    "title": "Profil Tercihlerini Düzenle", "aboutYou": "Hakkınızda", "yourName": "Adınız", "yourRole": "Rolünüz", "rolePlaceholder": "Ürün Müdürü",
+    "expertise": "Uzmanlık Alanları / İlgi Alanları", "expertisePlaceholder": "örn., Pazarlama, Veri Analizi, Yazılım Geliştirme",
+    "agentBehavior": "Ajan Davranışı", "tone": "İletişim Tonu",
+    "toneOptions": ["Samimi ve Dostane", "Profesyonel", "Teknik ve Ayrıntılı", "Kısa ve Öz"],
+    "responseLength": "Yanıt Uzunluğu", "responseLengthOptions": ["Kısa ve Öz", "Dengeli", "Ayrıntılı ve Kapsamlı"],
+    "creativity": "Yaratıcılık Seviyesi", "creativityOptions": ["Düşük", "Dengeli", "Yüksek"],
+    "preferredLang": "Tercih Edilen Dil", "instructions": "Ek Talimatlar",
+    "instructionsPlaceholder": "ajanlarınızın her zaman dikkate almasını istediğiniz belirli talimatlar veya bağlam ekleyin...",
+    "instructionsHint": "Bu talimatlar tüm ajan etkileşimlerinize uygulanacak.", "cancel": "İptal", "save": "Tercihleri Kaydet"
+  }
+}

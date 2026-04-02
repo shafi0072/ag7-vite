@@ -1,0 +1,42 @@
+{
+  "nav": { "home": "首页", "chat": "聊天", "tasks": "任务", "calendar": "日历", "settings": "设置", "logout": "退出登录" },
+  "auth": {
+    "login": { "subtitle": "登录您的账户", "email": "邮箱", "password": "密码", "submit": "登录", "submitting": "登录中...", "noAccount": "还没有账户？", "signUp": "注册" },
+    "signup": { "subtitle": "创建您的账户", "email": "邮箱", "password": "密码", "confirmPassword": "确认密码", "passwordMismatch": "密码不匹配", "passwordTooShort": "密码至少需要6个字符", "submit": "创建账户", "submitting": "创建账户中...", "hasAccount": "已有账户？", "signIn": "登录" }
+  },
+  "onboarding": {
+    "language": { "title": "选择语言", "subtitle": "选择您偏好的界面和代理通信语言。" },
+    "timezone": { "title": "设置时区", "subtitle": "我们将用此协调您的任务和每日同步。" },
+    "name": { "title": "您叫什么名字？", "subtitle": "这是您的代理和系统称呼您的方式。", "label": "全名", "placeholder": "输入您的名字", "hint": "您的名字将用于个性化您的仪表板。" },
+    "agent": { "title": "为您的代理命名", "subtitle": "为您的个人 AI 助手赋予独特的身份。", "label": "代理名称", "placeholder": "输入您的代理名称" },
+    "back": "返回", "continue": "继续", "getStarted": "开始使用", "terms": "继续即表示您同意我们的", "termsLink": "服务条款", "and": "和", "privacyLink": "隐私政策", "setup": "设置不到 60 秒即可完成。"
+  },
+  "tasks": {
+    "title": "任务", "subtitle": "管理您代理团队的任务", "liveFeed": "实时动态", "addTask": "添加任务",
+    "columns": { "backlog": "待办积压", "todo": "待处理", "inProgress": "进行中", "done": "已完成" },
+    "modal": { "title": "添加任务", "titleLabel": "标题", "titlePlaceholder": "任务标题", "description": "描述", "descriptionPlaceholder": "任务描述（可选）", "column": "列", "assignAgent": "分配代理（可选）", "selectAgent": "选择代理", "recurring": "重复任务", "repeat": "重复", "daily": "每天", "weekly": "每周", "monthly": "每月", "cancel": "取消", "add": "添加任务" }
+  },
+  "dashboard": {
+    "tasksDone": { "title": "已完成任务", "outOf": "共", "excellent": "优秀", "details": "详情" },
+    "container": { "title": "您的 OpenClaw Bot", "loading": "加载状态中...", "notDeployed": "尚未部署机器人", "deploySubtitle": "在几秒内部署您的个人 AI 代理", "deployNow": "立即部署", "deploying": "部署中...", "settingUp": "正在设置您的容器...", "settingUpSubtitle": "这可能需要一点时间", "running": "运行中", "started": "已启动", "stop": "停止", "restart": "重启", "openBot": "打开机器人", "stopped": "已停止", "start": "启动", "delete": "删除", "error": "出了点问题", "errorSubtitle": "您的容器遇到了错误", "retryDeploy": "重试部署" }
+  },
+  "settings": {
+    "title": "设置", "subtitle": "管理您的账户和订阅", "accounts": "账户", "resources": "资源",
+    "channels": { "title": "您想使用哪个渠道发送消息？", "connected": "已连接", "comingSoon": "即将推出", "edit": "编辑" },
+    "email": { "title": "邮件通知", "subtitle": "通过电子邮件接收任务更新和提及", "addEmail": "添加邮箱" },
+    "languages": "语言",
+    "profile": { "title": "我的个人资料", "subtitle": "帮助您的代理了解您的期望和偏好的沟通方式。", "editProfile": "编辑个人资料" },
+    "usage": { "title": "当前使用情况", "workspaces": "工作区", "agents": "代理", "storage": "本地存储" }
+  },
+  "editProfile": {
+    "title": "编辑个人资料偏好", "aboutYou": "关于您", "yourName": "您的姓名", "yourRole": "您的角色", "rolePlaceholder": "产品经理",
+    "expertise": "专业领域 / 兴趣", "expertisePlaceholder": "例如：市场营销、数据分析、软件开发",
+    "agentBehavior": "代理行为", "tone": "沟通语气",
+    "toneOptions": ["随意友好", "专业", "技术详细", "简洁明了"],
+    "responseLength": "回复长度", "responseLengthOptions": ["简短精炼", "均衡", "详细全面"],
+    "creativity": "创造力水平", "creativityOptions": ["低", "均衡", "高"],
+    "preferredLang": "首选语言", "instructions": "附加说明",
+    "instructionsPlaceholder": "添加您希望代理始终考虑的具体说明或背景...",
+    "instructionsHint": "这些说明将应用于您与代理的所有交互。", "cancel": "取消", "save": "保存偏好"
+  }
+}

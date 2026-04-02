@@ -1,0 +1,173 @@
+{
+  "nav": {
+    "home": "Home",
+    "chat": "Chat",
+    "tasks": "Tasks",
+    "calendar": "Calendar",
+    "settings": "Settings",
+    "logout": "Logout"
+  },
+  "auth": {
+    "login": {
+      "subtitle": "Sign in to your account",
+      "email": "Email",
+      "password": "Password",
+      "submit": "Sign In",
+      "submitting": "Signing in...",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign up"
+    },
+    "signup": {
+      "subtitle": "Create your account",
+      "email": "Email",
+      "password": "Password",
+      "confirmPassword": "Confirm Password",
+      "passwordMismatch": "Passwords do not match",
+      "passwordTooShort": "Password must be at least 6 characters",
+      "submit": "Create Account",
+      "submitting": "Creating account...",
+      "hasAccount": "Already have an account?",
+      "signIn": "Sign in"
+    }
+  },
+  "onboarding": {
+    "language": {
+      "title": "Choose Language",
+      "subtitle": "Select your preferred language for the interface and agent communication."
+    },
+    "timezone": {
+      "title": "Set Timezone",
+      "subtitle": "We'll use this to coordinate your tasks and daily syncs."
+    },
+    "name": {
+      "title": "What's your name?",
+      "subtitle": "This is how your agent and the system will address you.",
+      "label": "Full Name",
+      "placeholder": "Enter your name",
+      "hint": "Your name will be used to personalize your dashboard."
+    },
+    "agent": {
+      "title": "Name your agent",
+      "subtitle": "Give your personal AI assistant a unique identity.",
+      "label": "Agent Name",
+      "placeholder": "Enter your agent name"
+    },
+    "back": "Back",
+    "continue": "Continue",
+    "getStarted": "Get Started",
+    "terms": "By continuing, you agree to our",
+    "termsLink": "Terms of Service",
+    "and": "and",
+    "privacyLink": "Privacy Policy",
+    "setup": "Setup takes less than 60 seconds."
+  },
+  "tasks": {
+    "title": "Tasks",
+    "subtitle": "Manage tasks across your agent workforce",
+    "liveFeed": "Live Feed",
+    "addTask": "Add Task",
+    "columns": {
+      "backlog": "Backlog",
+      "todo": "To Do",
+      "inProgress": "In Progress",
+      "done": "Done"
+    },
+    "modal": {
+      "title": "Add Task",
+      "titleLabel": "Title",
+      "titlePlaceholder": "Task title",
+      "description": "Description",
+      "descriptionPlaceholder": "Task description (optional)",
+      "column": "Column",
+      "assignAgent": "Assign Agent (optional)",
+      "selectAgent": "Select an agent",
+      "recurring": "Recurring Task",
+      "repeat": "Repeat",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+      "cancel": "Cancel",
+      "add": "Add Task"
+    }
+  },
+  "dashboard": {
+    "tasksDone": {
+      "title": "Tasks Done",
+      "outOf": "out of",
+      "excellent": "Excellent",
+      "details": "Details"
+    },
+    "container": {
+      "title": "Your OpenClaw Bot",
+      "loading": "Loading status...",
+      "notDeployed": "No bot deployed yet",
+      "deploySubtitle": "Deploy your personal AI agent in seconds",
+      "deployNow": "Deploy Now",
+      "deploying": "Deploying...",
+      "settingUp": "Setting up your container...",
+      "settingUpSubtitle": "This may take a moment",
+      "running": "Running",
+      "started": "Started",
+      "stop": "Stop",
+      "restart": "Restart",
+      "openBot": "Open Bot",
+      "stopped": "Stopped",
+      "start": "Start",
+      "delete": "Delete",
+      "error": "Something went wrong",
+      "errorSubtitle": "Your container encountered an error",
+      "retryDeploy": "Retry Deploy"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "subtitle": "Manage your account and subscription",
+    "accounts": "Accounts",
+    "resources": "Resources",
+    "channels": {
+      "title": "Which channel do you want to use for sending messages?",
+      "connected": "Connected",
+      "comingSoon": "Coming Soon",
+      "edit": "Edit"
+    },
+    "email": {
+      "title": "Email Notifications",
+      "subtitle": "Receive task updates and mentions via email",
+      "addEmail": "Add Email"
+    },
+    "languages": "Languages",
+    "profile": {
+      "title": "My Profile",
+      "subtitle": "Help your agents understand your expectations and preferred communication style.",
+      "editProfile": "Edit Profile"
+    },
+    "usage": {
+      "title": "Current Usage",
+      "workspaces": "Workspaces",
+      "agents": "Agents",
+      "storage": "Local Storage"
+    }
+  },
+  "editProfile": {
+    "title": "Edit Profile Preferences",
+    "aboutYou": "About You",
+    "yourName": "Your Name",
+    "yourRole": "Your Role",
+    "rolePlaceholder": "Product Manager",
+    "expertise": "Areas of Expertise / Interests",
+    "expertisePlaceholder": "e.g., Marketing, Data Analysis, Software Development",
+    "agentBehavior": "Agent Behavior",
+    "tone": "Communication Tone",
+    "toneOptions": ["Casual & Friendly", "Professional", "Technical & Detailed", "Brief & To-the-point"],
+    "responseLength": "Response Length",
+    "responseLengthOptions": ["Short & Concise", "Balanced", "Detailed & Comprehensive"],
+    "creativity": "Creativity Level",
+    "creativityOptions": ["Low", "Balanced", "High"],
+    "preferredLang": "Preferred Language",
+    "instructions": "Additional Instructions",
+    "instructionsPlaceholder": "add any specific instructions or context you want your agents to always consider...",
+    "instructionsHint": "These instructions will be applied to all your agent interactions.",
+    "cancel": "Cancel",
+    "save": "Save Preferences"
+  }
+}

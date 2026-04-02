@@ -1,0 +1,53 @@
+services:
+  frontend:
+    build:
+      context: ../../
+      dockerfile: Dockerfile
+    container_name: ag7-frontend
+    env_file: ../../.env.production
+    environment:
+      - HOSTNAME=0.0.0.0
+    networks:
+      - openclaw-network
+    restart: unless-stopped
+
+  api:
+    build: .
+    container_name: ag7-api
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock
+      - ./nginx/conf.d:/app/nginx/conf.d
+      - memory_data:/data/memory
+    env_file: .env.production
+    environment:
+      - NGINX_CONF_DIR=/app/nginx/conf.d
+    networks:
+      - openclaw-network
+    restart: unless-stopped
+
+  nginx:
+    image: nginx:alpine
+    container_name: ag7-nginx
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    ports:
+      - "80:80"
+    volumes:
+      - ./nginx/nginx.prod.conf:/etc/nginx/nginx.conf:ro
+      - ./nginx/conf.d:/etc/nginx/conf.d
+      - ./nginx/ssl:/etc/nginx/ssl:ro
+    depends_on:
+      - api
+      - frontend
+    networks:
+      - openclaw-network
+    restart: unless-stopped
+
+networks:
+  openclaw-network:
+    driver: bridge
+
+volumes:
+  memory_data:

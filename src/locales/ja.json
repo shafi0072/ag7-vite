@@ -1,0 +1,42 @@
+{
+  "nav": { "home": "ホーム", "chat": "チャット", "tasks": "タスク", "calendar": "カレンダー", "settings": "設定", "logout": "ログアウト" },
+  "auth": {
+    "login": { "subtitle": "アカウントにサインイン", "email": "メール", "password": "パスワード", "submit": "サインイン", "submitting": "サインイン中...", "noAccount": "アカウントをお持ちでないですか？", "signUp": "サインアップ" },
+    "signup": { "subtitle": "アカウントを作成", "email": "メール", "password": "パスワード", "confirmPassword": "パスワードを確認", "passwordMismatch": "パスワードが一致しません", "passwordTooShort": "パスワードは6文字以上必要です", "submit": "アカウントを作成", "submitting": "作成中...", "hasAccount": "すでにアカウントをお持ちですか？", "signIn": "サインイン" }
+  },
+  "onboarding": {
+    "language": { "title": "言語を選択", "subtitle": "インターフェースとエージェント通信に使用する言語を選択してください。" },
+    "timezone": { "title": "タイムゾーンを設定", "subtitle": "タスクと日次同期の調整に使用します。" },
+    "name": { "title": "お名前は？", "subtitle": "エージェントとシステムがあなたを呼ぶ方法です。", "label": "フルネーム", "placeholder": "お名前を入力", "hint": "お名前はダッシュボードのパーソナライズに使用されます。" },
+    "agent": { "title": "エージェントに名前を付ける", "subtitle": "個人用AIアシスタントに独自のアイデンティティを与えましょう。", "label": "エージェント名", "placeholder": "エージェント名を入力" },
+    "back": "戻る", "continue": "続ける", "getStarted": "始める", "terms": "続行することで、当社の", "termsLink": "利用規約", "and": "および", "privacyLink": "プライバシーポリシー", "setup": "セットアップは60秒未満で完了します。"
+  },
+  "tasks": {
+    "title": "タスク", "subtitle": "エージェントチームのタスクを管理", "liveFeed": "ライブフィード", "addTask": "タスクを追加",
+    "columns": { "backlog": "バックログ", "todo": "未着手", "inProgress": "進行中", "done": "完了" },
+    "modal": { "title": "タスクを追加", "titleLabel": "タイトル", "titlePlaceholder": "タスクのタイトル", "description": "説明", "descriptionPlaceholder": "タスクの説明（任意）", "column": "列", "assignAgent": "エージェントを割り当て（任意）", "selectAgent": "エージェントを選択", "recurring": "繰り返しタスク", "repeat": "繰り返し", "daily": "毎日", "weekly": "毎週", "monthly": "毎月", "cancel": "キャンセル", "add": "タスクを追加" }
+  },
+  "dashboard": {
+    "tasksDone": { "title": "完了タスク", "outOf": "/", "excellent": "優秀", "details": "詳細" },
+    "container": { "title": "OpenClaw Bot", "loading": "状態を読み込み中...", "notDeployed": "ボット未デプロイ", "deploySubtitle": "数秒で個人用AIエージェントをデプロイ", "deployNow": "今すぐデプロイ", "deploying": "デプロイ中...", "settingUp": "コンテナをセットアップ中...", "settingUpSubtitle": "しばらくお待ちください", "running": "実行中", "started": "開始", "stop": "停止", "restart": "再起動", "openBot": "ボットを開く", "stopped": "停止中", "start": "開始", "delete": "削除", "error": "エラーが発生しました", "errorSubtitle": "コンテナでエラーが発生しました", "retryDeploy": "再デプロイ" }
+  },
+  "settings": {
+    "title": "設定", "subtitle": "アカウントとサブスクリプションを管理", "accounts": "アカウント", "resources": "リソース",
+    "channels": { "title": "メッセージ送信に使用するチャンネルを選択してください", "connected": "接続済み", "comingSoon": "近日公開", "edit": "編集" },
+    "email": { "title": "メール通知", "subtitle": "タスクの更新やメンションをメールで受け取る", "addEmail": "メールを追加" },
+    "languages": "言語",
+    "profile": { "title": "マイプロフィール", "subtitle": "エージェントがあなたの期待とコミュニケーションスタイルを理解できるようにする。", "editProfile": "プロフィールを編集" },
+    "usage": { "title": "現在の使用状況", "workspaces": "ワークスペース", "agents": "エージェント", "storage": "ローカルストレージ" }
+  },
+  "editProfile": {
+    "title": "プロフィール設定を編集", "aboutYou": "あなたについて", "yourName": "お名前", "yourRole": "役割", "rolePlaceholder": "プロダクトマネージャー",
+    "expertise": "専門分野 / 興味", "expertisePlaceholder": "例：マーケティング、データ分析、ソフトウェア開発",
+    "agentBehavior": "エージェントの動作", "tone": "コミュニケーションのトーン",
+    "toneOptions": ["カジュアル＆フレンドリー", "プロフェッショナル", "技術的＆詳細", "簡潔"],
+    "responseLength": "返答の長さ", "responseLengthOptions": ["短く簡潔", "バランス型", "詳細＆包括的"],
+    "creativity": "創造性レベル", "creativityOptions": ["低", "バランス型", "高"],
+    "preferredLang": "優先言語", "instructions": "追加指示",
+    "instructionsPlaceholder": "エージェントに常に考慮してほしい特定の指示を追加してください...",
+    "instructionsHint": "これらの指示はすべてのエージェントとのやり取りに適用されます。", "cancel": "キャンセル", "save": "設定を保存"
+  }
+}

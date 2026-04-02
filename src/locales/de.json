@@ -1,0 +1,42 @@
+{
+  "nav": { "home": "Startseite", "chat": "Chat", "tasks": "Aufgaben", "calendar": "Kalender", "settings": "Einstellungen", "logout": "Abmelden" },
+  "auth": {
+    "login": { "subtitle": "Bei Ihrem Konto anmelden", "email": "E-Mail", "password": "Passwort", "submit": "Anmelden", "submitting": "Anmeldung läuft...", "noAccount": "Noch kein Konto?", "signUp": "Registrieren" },
+    "signup": { "subtitle": "Konto erstellen", "email": "E-Mail", "password": "Passwort", "confirmPassword": "Passwort bestätigen", "passwordMismatch": "Passwörter stimmen nicht überein", "passwordTooShort": "Passwort muss mindestens 6 Zeichen haben", "submit": "Konto erstellen", "submitting": "Konto wird erstellt...", "hasAccount": "Bereits ein Konto?", "signIn": "Anmelden" }
+  },
+  "onboarding": {
+    "language": { "title": "Sprache wählen", "subtitle": "Wählen Sie Ihre bevorzugte Sprache für die Oberfläche und die Agentenkommunikation." },
+    "timezone": { "title": "Zeitzone festlegen", "subtitle": "Wir verwenden dies, um Ihre Aufgaben und täglichen Synchronisierungen zu koordinieren." },
+    "name": { "title": "Wie heißen Sie?", "subtitle": "So werden Ihr Agent und das System Sie ansprechen.", "label": "Vollständiger Name", "placeholder": "Namen eingeben", "hint": "Ihr Name wird verwendet, um Ihr Dashboard zu personalisieren." },
+    "agent": { "title": "Agenten benennen", "subtitle": "Geben Sie Ihrem persönlichen KI-Assistenten eine einzigartige Identität.", "label": "Agentenname", "placeholder": "Agentennamen eingeben" },
+    "back": "Zurück", "continue": "Weiter", "getStarted": "Loslegen", "terms": "Durch Fortfahren stimmen Sie unseren", "termsLink": "Nutzungsbedingungen", "and": "und", "privacyLink": "Datenschutzrichtlinie", "setup": "Die Einrichtung dauert weniger als 60 Sekunden."
+  },
+  "tasks": {
+    "title": "Aufgaben", "subtitle": "Verwalten Sie Aufgaben in Ihrer Agentenbelegschaft", "liveFeed": "Live-Feed", "addTask": "Aufgabe hinzufügen",
+    "columns": { "backlog": "Rückstand", "todo": "Zu erledigen", "inProgress": "In Bearbeitung", "done": "Erledigt" },
+    "modal": { "title": "Aufgabe hinzufügen", "titleLabel": "Titel", "titlePlaceholder": "Aufgabentitel", "description": "Beschreibung", "descriptionPlaceholder": "Aufgabenbeschreibung (optional)", "column": "Spalte", "assignAgent": "Agent zuweisen (optional)", "selectAgent": "Agent auswählen", "recurring": "Wiederkehrende Aufgabe", "repeat": "Wiederholen", "daily": "Täglich", "weekly": "Wöchentlich", "monthly": "Monatlich", "cancel": "Abbrechen", "add": "Aufgabe hinzufügen" }
+  },
+  "dashboard": {
+    "tasksDone": { "title": "Erledigte Aufgaben", "outOf": "von", "excellent": "Ausgezeichnet", "details": "Details" },
+    "container": { "title": "Ihr OpenClaw Bot", "loading": "Status wird geladen...", "notDeployed": "Kein Bot bereitgestellt", "deploySubtitle": "Stellen Sie Ihren persönlichen KI-Agenten in Sekunden bereit", "deployNow": "Jetzt bereitstellen", "deploying": "Wird bereitgestellt...", "settingUp": "Container wird eingerichtet...", "settingUpSubtitle": "Dies kann einen Moment dauern", "running": "Läuft", "started": "Gestartet", "stop": "Stopp", "restart": "Neustart", "openBot": "Bot öffnen", "stopped": "Gestoppt", "start": "Starten", "delete": "Löschen", "error": "Etwas ist schiefgelaufen", "errorSubtitle": "Ihr Container hat einen Fehler festgestellt", "retryDeploy": "Bereitstellung wiederholen" }
+  },
+  "settings": {
+    "title": "Einstellungen", "subtitle": "Konto und Abonnement verwalten", "accounts": "Konten", "resources": "Ressourcen",
+    "channels": { "title": "Welchen Kanal möchten Sie zum Senden von Nachrichten verwenden?", "connected": "Verbunden", "comingSoon": "Demnächst", "edit": "Bearbeiten" },
+    "email": { "title": "E-Mail-Benachrichtigungen", "subtitle": "Aufgaben-Updates und Erwähnungen per E-Mail erhalten", "addEmail": "E-Mail hinzufügen" },
+    "languages": "Sprachen",
+    "profile": { "title": "Mein Profil", "subtitle": "Helfen Sie Ihren Agenten, Ihre Erwartungen und Ihren Kommunikationsstil zu verstehen.", "editProfile": "Profil bearbeiten" },
+    "usage": { "title": "Aktuelle Nutzung", "workspaces": "Arbeitsbereiche", "agents": "Agenten", "storage": "Lokaler Speicher" }
+  },
+  "editProfile": {
+    "title": "Profilpräferenzen bearbeiten", "aboutYou": "Über Sie", "yourName": "Ihr Name", "yourRole": "Ihre Rolle", "rolePlaceholder": "Produktmanager",
+    "expertise": "Fachgebiete / Interessen", "expertisePlaceholder": "z.B. Marketing, Datenanalyse, Softwareentwicklung",
+    "agentBehavior": "Agentenverhalten", "tone": "Kommunikationston",
+    "toneOptions": ["Locker & freundlich", "Professionell", "Technisch & detailliert", "Kurz & prägnant"],
+    "responseLength": "Antwortlänge", "responseLengthOptions": ["Kurz & prägnant", "Ausgewogen", "Detailliert & umfassend"],
+    "creativity": "Kreativitätsniveau", "creativityOptions": ["Niedrig", "Ausgewogen", "Hoch"],
+    "preferredLang": "Bevorzugte Sprache", "instructions": "Zusätzliche Anweisungen",
+    "instructionsPlaceholder": "Fügen Sie spezifische Anweisungen hinzu, die Ihre Agenten immer berücksichtigen sollen...",
+    "instructionsHint": "Diese Anweisungen werden auf alle Ihre Agenten-Interaktionen angewendet.", "cancel": "Abbrechen", "save": "Präferenzen speichern"
+  }
+}

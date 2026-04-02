@@ -1,0 +1,42 @@
+{
+  "nav": { "home": "Accueil", "chat": "Discussion", "tasks": "Tâches", "calendar": "Calendrier", "settings": "Paramètres", "logout": "Déconnexion" },
+  "auth": {
+    "login": { "subtitle": "Connectez-vous à votre compte", "email": "E-mail", "password": "Mot de passe", "submit": "Se connecter", "submitting": "Connexion en cours...", "noAccount": "Pas encore de compte ?", "signUp": "S'inscrire" },
+    "signup": { "subtitle": "Créez votre compte", "email": "E-mail", "password": "Mot de passe", "confirmPassword": "Confirmer le mot de passe", "passwordMismatch": "Les mots de passe ne correspondent pas", "passwordTooShort": "Le mot de passe doit comporter au moins 6 caractères", "submit": "Créer un compte", "submitting": "Création du compte...", "hasAccount": "Vous avez déjà un compte ?", "signIn": "Se connecter" }
+  },
+  "onboarding": {
+    "language": { "title": "Choisir la langue", "subtitle": "Sélectionnez votre langue préférée pour l'interface et la communication avec l'agent." },
+    "timezone": { "title": "Définir le fuseau horaire", "subtitle": "Nous l'utiliserons pour coordonner vos tâches et synchronisations quotidiennes." },
+    "name": { "title": "Quel est votre nom ?", "subtitle": "C'est ainsi que votre agent et le système vous appelleront.", "label": "Nom complet", "placeholder": "Entrez votre nom", "hint": "Votre nom sera utilisé pour personnaliser votre tableau de bord." },
+    "agent": { "title": "Nommez votre agent", "subtitle": "Donnez une identité unique à votre assistant IA personnel.", "label": "Nom de l'agent", "placeholder": "Entrez le nom de votre agent" },
+    "back": "Retour", "continue": "Continuer", "getStarted": "Commencer", "terms": "En continuant, vous acceptez nos", "termsLink": "Conditions d'utilisation", "and": "et", "privacyLink": "Politique de confidentialité", "setup": "La configuration prend moins de 60 secondes."
+  },
+  "tasks": {
+    "title": "Tâches", "subtitle": "Gérez les tâches de votre équipe d'agents", "liveFeed": "Fil en direct", "addTask": "Ajouter une tâche",
+    "columns": { "backlog": "Arriéré", "todo": "À faire", "inProgress": "En cours", "done": "Terminé" },
+    "modal": { "title": "Ajouter une tâche", "titleLabel": "Titre", "titlePlaceholder": "Titre de la tâche", "description": "Description", "descriptionPlaceholder": "Description de la tâche (optionnel)", "column": "Colonne", "assignAgent": "Assigner un agent (optionnel)", "selectAgent": "Sélectionner un agent", "recurring": "Tâche récurrente", "repeat": "Répéter", "daily": "Quotidien", "weekly": "Hebdomadaire", "monthly": "Mensuel", "cancel": "Annuler", "add": "Ajouter une tâche" }
+  },
+  "dashboard": {
+    "tasksDone": { "title": "Tâches terminées", "outOf": "sur", "excellent": "Excellent", "details": "Détails" },
+    "container": { "title": "Votre Bot OpenClaw", "loading": "Chargement du statut...", "notDeployed": "Aucun bot déployé", "deploySubtitle": "Déployez votre agent IA personnel en quelques secondes", "deployNow": "Déployer maintenant", "deploying": "Déploiement...", "settingUp": "Configuration de votre conteneur...", "settingUpSubtitle": "Cela peut prendre un moment", "running": "En cours d'exécution", "started": "Démarré", "stop": "Arrêter", "restart": "Redémarrer", "openBot": "Ouvrir le bot", "stopped": "Arrêté", "start": "Démarrer", "delete": "Supprimer", "error": "Une erreur s'est produite", "errorSubtitle": "Votre conteneur a rencontré une erreur", "retryDeploy": "Réessayer le déploiement" }
+  },
+  "settings": {
+    "title": "Paramètres", "subtitle": "Gérez votre compte et abonnement", "accounts": "Comptes", "resources": "Ressources",
+    "channels": { "title": "Quel canal voulez-vous utiliser pour envoyer des messages ?", "connected": "Connecté", "comingSoon": "Bientôt disponible", "edit": "Modifier" },
+    "email": { "title": "Notifications par e-mail", "subtitle": "Recevez les mises à jour des tâches et les mentions par e-mail", "addEmail": "Ajouter un e-mail" },
+    "languages": "Langues",
+    "profile": { "title": "Mon profil", "subtitle": "Aidez vos agents à comprendre vos attentes et votre style de communication.", "editProfile": "Modifier le profil" },
+    "usage": { "title": "Utilisation actuelle", "workspaces": "Espaces de travail", "agents": "Agents", "storage": "Stockage local" }
+  },
+  "editProfile": {
+    "title": "Modifier les préférences de profil", "aboutYou": "À propos de vous", "yourName": "Votre nom", "yourRole": "Votre rôle", "rolePlaceholder": "Chef de produit",
+    "expertise": "Domaines d'expertise / Intérêts", "expertisePlaceholder": "ex., Marketing, Analyse de données, Développement logiciel",
+    "agentBehavior": "Comportement de l'agent", "tone": "Ton de communication",
+    "toneOptions": ["Décontracté et amical", "Professionnel", "Technique et détaillé", "Bref et précis"],
+    "responseLength": "Longueur de réponse", "responseLengthOptions": ["Court et concis", "Équilibré", "Détaillé et complet"],
+    "creativity": "Niveau de créativité", "creativityOptions": ["Faible", "Équilibré", "Élevé"],
+    "preferredLang": "Langue préférée", "instructions": "Instructions supplémentaires",
+    "instructionsPlaceholder": "ajoutez les instructions spécifiques que vous souhaitez que vos agents prennent toujours en compte...",
+    "instructionsHint": "Ces instructions s'appliqueront à toutes vos interactions avec les agents.", "cancel": "Annuler", "save": "Enregistrer les préférences"
+  }
+}

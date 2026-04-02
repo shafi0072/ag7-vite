@@ -1,0 +1,42 @@
+{
+  "nav": { "home": "الرئيسية", "chat": "المحادثة", "tasks": "المهام", "calendar": "التقويم", "settings": "الإعدادات", "logout": "تسجيل الخروج" },
+  "auth": {
+    "login": { "subtitle": "تسجيل الدخول إلى حسابك", "email": "البريد الإلكتروني", "password": "كلمة المرور", "submit": "تسجيل الدخول", "submitting": "جارٍ تسجيل الدخول...", "noAccount": "ليس لديك حساب؟", "signUp": "إنشاء حساب" },
+    "signup": { "subtitle": "إنشاء حسابك", "email": "البريد الإلكتروني", "password": "كلمة المرور", "confirmPassword": "تأكيد كلمة المرور", "passwordMismatch": "كلمتا المرور غير متطابقتين", "passwordTooShort": "يجب أن تتكون كلمة المرور من 6 أحرف على الأقل", "submit": "إنشاء حساب", "submitting": "جارٍ إنشاء الحساب...", "hasAccount": "لديك حساب بالفعل؟", "signIn": "تسجيل الدخول" }
+  },
+  "onboarding": {
+    "language": { "title": "اختر اللغة", "subtitle": "اختر لغتك المفضلة للواجهة والتواصل مع الوكيل." },
+    "timezone": { "title": "ضبط المنطقة الزمنية", "subtitle": "سنستخدم هذا لتنسيق مهامك ومزامناتك اليومية." },
+    "name": { "title": "ما اسمك؟", "subtitle": "هكذا سيخاطبك وكيلك والنظام.", "label": "الاسم الكامل", "placeholder": "أدخل اسمك", "hint": "سيُستخدم اسمك لتخصيص لوحة التحكم." },
+    "agent": { "title": "سمِّ وكيلك", "subtitle": "امنح مساعدك الذكي الشخصي هوية فريدة.", "label": "اسم الوكيل", "placeholder": "أدخل اسم وكيلك" },
+    "back": "رجوع", "continue": "متابعة", "getStarted": "ابدأ الآن", "terms": "بالمتابعة، أنت توافق على", "termsLink": "شروط الخدمة", "and": "و", "privacyLink": "سياسة الخصوصية", "setup": "يستغرق الإعداد أقل من 60 ثانية."
+  },
+  "tasks": {
+    "title": "المهام", "subtitle": "إدارة المهام في فريق الوكلاء", "liveFeed": "التغذية المباشرة", "addTask": "إضافة مهمة",
+    "columns": { "backlog": "المتراكمة", "todo": "للتنفيذ", "inProgress": "قيد التنفيذ", "done": "منجزة" },
+    "modal": { "title": "إضافة مهمة", "titleLabel": "العنوان", "titlePlaceholder": "عنوان المهمة", "description": "الوصف", "descriptionPlaceholder": "وصف المهمة (اختياري)", "column": "العمود", "assignAgent": "تعيين وكيل (اختياري)", "selectAgent": "اختر وكيلاً", "recurring": "مهمة متكررة", "repeat": "تكرار", "daily": "يومياً", "weekly": "أسبوعياً", "monthly": "شهرياً", "cancel": "إلغاء", "add": "إضافة مهمة" }
+  },
+  "dashboard": {
+    "tasksDone": { "title": "المهام المنجزة", "outOf": "من", "excellent": "ممتاز", "details": "التفاصيل" },
+    "container": { "title": "بوت OpenClaw الخاص بك", "loading": "جارٍ تحميل الحالة...", "notDeployed": "لا يوجد بوت مُنشأ بعد", "deploySubtitle": "انشر وكيل الذكاء الاصطناعي الشخصي في ثوانٍ", "deployNow": "انشر الآن", "deploying": "جارٍ النشر...", "settingUp": "جارٍ إعداد الحاوية...", "settingUpSubtitle": "قد يستغرق هذا لحظة", "running": "يعمل", "started": "بدأ", "stop": "إيقاف", "restart": "إعادة تشغيل", "openBot": "فتح البوت", "stopped": "متوقف", "start": "تشغيل", "delete": "حذف", "error": "حدث خطأ ما", "errorSubtitle": "واجهت الحاوية خطأً", "retryDeploy": "إعادة النشر" }
+  },
+  "settings": {
+    "title": "الإعدادات", "subtitle": "إدارة حسابك واشتراكك", "accounts": "الحسابات", "resources": "الموارد",
+    "channels": { "title": "أي قناة تريد استخدامها لإرسال الرسائل؟", "connected": "متصل", "comingSoon": "قريباً", "edit": "تعديل" },
+    "email": { "title": "إشعارات البريد الإلكتروني", "subtitle": "تلقّ تحديثات المهام والإشارات عبر البريد الإلكتروني", "addEmail": "إضافة بريد إلكتروني" },
+    "languages": "اللغات",
+    "profile": { "title": "ملفي الشخصي", "subtitle": "ساعد وكلاءك على فهم توقعاتك وأسلوب تواصلك المفضل.", "editProfile": "تعديل الملف الشخصي" },
+    "usage": { "title": "الاستخدام الحالي", "workspaces": "مساحات العمل", "agents": "الوكلاء", "storage": "التخزين المحلي" }
+  },
+  "editProfile": {
+    "title": "تعديل تفضيلات الملف الشخصي", "aboutYou": "عنك", "yourName": "اسمك", "yourRole": "دورك", "rolePlaceholder": "مدير المنتج",
+    "expertise": "مجالات الخبرة / الاهتمامات", "expertisePlaceholder": "مثل: التسويق، تحليل البيانات، تطوير البرمجيات",
+    "agentBehavior": "سلوك الوكيل", "tone": "نبرة التواصل",
+    "toneOptions": ["غير رسمي وودود", "احترافي", "تقني ومفصّل", "موجز ومختصر"],
+    "responseLength": "طول الاستجابة", "responseLengthOptions": ["قصير وموجز", "متوازن", "مفصّل وشامل"],
+    "creativity": "مستوى الإبداع", "creativityOptions": ["منخفض", "متوازن", "مرتفع"],
+    "preferredLang": "اللغة المفضلة", "instructions": "تعليمات إضافية",
+    "instructionsPlaceholder": "أضف تعليمات أو سياقات محددة تريد من وكلائك مراعاتها دائماً...",
+    "instructionsHint": "ستُطبَّق هذه التعليمات على جميع تفاعلاتك مع الوكلاء.", "cancel": "إلغاء", "save": "حفظ التفضيلات"
+  }
+}
