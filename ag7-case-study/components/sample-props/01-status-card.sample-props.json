@@ -1,0 +1,852 @@
+{
+  "component": "ContainerPanel (dashboard 'Your OpenClaw Bot' card) + DeployProgress",
+  "propsNote": "ContainerPanel takes no props; it renders from two API responses. 'statusResponse' = GET /api/containers/status, 'activity' = GET /api/containers/activity. DeployProgress takes { run }.",
+  "frame": {
+    "width": 440,
+    "height": 250
+  },
+  "states": {
+    "idle": {
+      "statusResponse": {
+        "status": "not_deployed",
+        "subdomain": null,
+        "container": null
+      },
+      "activity": {
+        "runs": []
+      }
+    },
+    "running": {
+      "statusResponse": {
+        "status": "creating",
+        "subdomain": "agent endpoint (private)",
+        "container": {
+          "id": "c0ffee00-1111-4222-8333-444455556666",
+          "container_name": "openclaw-a1b2c3d4",
+          "port": 3100,
+          "subdomain": "agent endpoint (private)",
+          "status": "creating",
+          "last_started_at": null,
+          "gateway_token": "gw_****",
+          "telegram_bot_token": null,
+          "telegram_connected": false,
+          "telegram_paired": false,
+          "container_id": ""
+        }
+      },
+      "activity": {
+        "runs": [
+          {
+            "id": "run_7f3c2a91",
+            "action": "deploy",
+            "status": "running",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": null,
+            "durationMs": null,
+            "steps": [
+              {
+                "key": "record",
+                "label": "Reserve port and create record",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.000Z",
+                "finishedAt": "2026-11-21T14:02:10.040Z"
+              },
+              {
+                "key": "network",
+                "label": "Prepare isolated network",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.040Z",
+                "finishedAt": "2026-11-21T14:02:10.660Z"
+              },
+              {
+                "key": "container",
+                "label": "Create OpenClaw container",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.660Z",
+                "finishedAt": "2026-11-21T14:02:12.370Z"
+              },
+              {
+                "key": "start",
+                "label": "Start agent gateway",
+                "status": "running",
+                "startedAt": "2026-11-21T14:02:12.370Z",
+                "finishedAt": null
+              },
+              {
+                "key": "routing",
+                "label": "Configure routing",
+                "status": "pending",
+                "startedAt": null,
+                "finishedAt": null
+              },
+              {
+                "key": "health",
+                "label": "Health check",
+                "status": "pending",
+                "startedAt": null,
+                "finishedAt": null
+              }
+            ]
+          }
+        ]
+      },
+      "deployProgress": {
+        "run": {
+          "id": "run_7f3c2a91",
+          "action": "deploy",
+          "status": "running",
+          "startedAt": "2026-11-21T14:02:10.000Z",
+          "finishedAt": null,
+          "durationMs": null,
+          "steps": [
+            {
+              "key": "record",
+              "label": "Reserve port and create record",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.000Z",
+              "finishedAt": "2026-11-21T14:02:10.040Z"
+            },
+            {
+              "key": "network",
+              "label": "Prepare isolated network",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.040Z",
+              "finishedAt": "2026-11-21T14:02:10.660Z"
+            },
+            {
+              "key": "container",
+              "label": "Create OpenClaw container",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.660Z",
+              "finishedAt": "2026-11-21T14:02:12.370Z"
+            },
+            {
+              "key": "start",
+              "label": "Start agent gateway",
+              "status": "running",
+              "startedAt": "2026-11-21T14:02:12.370Z",
+              "finishedAt": null
+            },
+            {
+              "key": "routing",
+              "label": "Configure routing",
+              "status": "pending",
+              "startedAt": null,
+              "finishedAt": null
+            },
+            {
+              "key": "health",
+              "label": "Health check",
+              "status": "pending",
+              "startedAt": null,
+              "finishedAt": null
+            }
+          ]
+        }
+      }
+    },
+    "success": {
+      "statusResponse": {
+        "status": "running",
+        "subdomain": "agent endpoint (private)",
+        "container": {
+          "id": "c0ffee00-1111-4222-8333-444455556666",
+          "container_name": "openclaw-a1b2c3d4",
+          "port": 3100,
+          "subdomain": "agent endpoint (private)",
+          "status": "running",
+          "last_started_at": "2026-11-21T14:02:14.300Z",
+          "gateway_token": "gw_****",
+          "telegram_bot_token": null,
+          "telegram_connected": false,
+          "telegram_paired": false
+        }
+      },
+      "activity": {
+        "runs": [
+          {
+            "id": "run_7f3c2a91",
+            "action": "deploy",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:14.280Z",
+            "durationMs": 4280,
+            "steps": [
+              {
+                "key": "record",
+                "label": "Reserve port and create record",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.000Z",
+                "finishedAt": "2026-11-21T14:02:10.040Z"
+              },
+              {
+                "key": "network",
+                "label": "Prepare isolated network",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.040Z",
+                "finishedAt": "2026-11-21T14:02:10.660Z"
+              },
+              {
+                "key": "container",
+                "label": "Create OpenClaw container",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.660Z",
+                "finishedAt": "2026-11-21T14:02:12.370Z"
+              },
+              {
+                "key": "start",
+                "label": "Start agent gateway",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:12.370Z",
+                "finishedAt": "2026-11-21T14:02:13.490Z"
+              },
+              {
+                "key": "routing",
+                "label": "Configure routing",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:13.490Z",
+                "finishedAt": "2026-11-21T14:02:13.970Z"
+              },
+              {
+                "key": "health",
+                "label": "Health check",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:13.970Z",
+                "finishedAt": "2026-11-21T14:02:14.280Z"
+              }
+            ]
+          }
+        ]
+      },
+      "deployProgress": {
+        "run": {
+          "id": "run_7f3c2a91",
+          "action": "deploy",
+          "status": "success",
+          "startedAt": "2026-11-21T14:02:10.000Z",
+          "finishedAt": "2026-11-21T14:02:14.280Z",
+          "durationMs": 4280,
+          "steps": [
+            {
+              "key": "record",
+              "label": "Reserve port and create record",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.000Z",
+              "finishedAt": "2026-11-21T14:02:10.040Z"
+            },
+            {
+              "key": "network",
+              "label": "Prepare isolated network",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.040Z",
+              "finishedAt": "2026-11-21T14:02:10.660Z"
+            },
+            {
+              "key": "container",
+              "label": "Create OpenClaw container",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.660Z",
+              "finishedAt": "2026-11-21T14:02:12.370Z"
+            },
+            {
+              "key": "start",
+              "label": "Start agent gateway",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:12.370Z",
+              "finishedAt": "2026-11-21T14:02:13.490Z"
+            },
+            {
+              "key": "routing",
+              "label": "Configure routing",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:13.490Z",
+              "finishedAt": "2026-11-21T14:02:13.970Z"
+            },
+            {
+              "key": "health",
+              "label": "Health check",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:13.970Z",
+              "finishedAt": "2026-11-21T14:02:14.280Z"
+            }
+          ]
+        }
+      }
+    },
+    "error": {
+      "statusResponse": {
+        "status": "error",
+        "subdomain": "agent endpoint (private)",
+        "container": {
+          "id": "c0ffee00-1111-4222-8333-444455556666",
+          "container_name": "openclaw-a1b2c3d4",
+          "port": 3100,
+          "subdomain": "agent endpoint (private)",
+          "status": "error",
+          "last_started_at": "2026-11-21T14:02:14.300Z",
+          "gateway_token": "gw_****",
+          "telegram_bot_token": null,
+          "telegram_connected": false,
+          "telegram_paired": false
+        }
+      },
+      "activity": {
+        "runs": [
+          {
+            "id": "run_7f3c2a91",
+            "action": "deploy",
+            "status": "error",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:13.470Z",
+            "durationMs": 3470,
+            "steps": [
+              {
+                "key": "record",
+                "label": "Reserve port and create record",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.000Z",
+                "finishedAt": "2026-11-21T14:02:10.040Z"
+              },
+              {
+                "key": "network",
+                "label": "Prepare isolated network",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.040Z",
+                "finishedAt": "2026-11-21T14:02:10.660Z"
+              },
+              {
+                "key": "container",
+                "label": "Create OpenClaw container",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.660Z",
+                "finishedAt": "2026-11-21T14:02:12.370Z"
+              },
+              {
+                "key": "start",
+                "label": "Start agent gateway",
+                "status": "error",
+                "startedAt": "2026-11-21T14:02:12.370Z",
+                "finishedAt": "2026-11-21T14:02:13.470Z",
+                "error": "Gateway did not become ready: port 18789 bind timed out"
+              },
+              {
+                "key": "routing",
+                "label": "Configure routing",
+                "status": "skipped",
+                "startedAt": null,
+                "finishedAt": null
+              },
+              {
+                "key": "health",
+                "label": "Health check",
+                "status": "skipped",
+                "startedAt": null,
+                "finishedAt": null
+              }
+            ],
+            "error": "Gateway did not become ready: port 18789 bind timed out"
+          }
+        ]
+      },
+      "deployProgress": {
+        "run": {
+          "id": "run_7f3c2a91",
+          "action": "deploy",
+          "status": "error",
+          "startedAt": "2026-11-21T14:02:10.000Z",
+          "finishedAt": "2026-11-21T14:02:13.470Z",
+          "durationMs": 3470,
+          "steps": [
+            {
+              "key": "record",
+              "label": "Reserve port and create record",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.000Z",
+              "finishedAt": "2026-11-21T14:02:10.040Z"
+            },
+            {
+              "key": "network",
+              "label": "Prepare isolated network",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.040Z",
+              "finishedAt": "2026-11-21T14:02:10.660Z"
+            },
+            {
+              "key": "container",
+              "label": "Create OpenClaw container",
+              "status": "success",
+              "startedAt": "2026-11-21T14:02:10.660Z",
+              "finishedAt": "2026-11-21T14:02:12.370Z"
+            },
+            {
+              "key": "start",
+              "label": "Start agent gateway",
+              "status": "error",
+              "startedAt": "2026-11-21T14:02:12.370Z",
+              "finishedAt": "2026-11-21T14:02:13.470Z",
+              "error": "Gateway did not become ready: port 18789 bind timed out"
+            },
+            {
+              "key": "routing",
+              "label": "Configure routing",
+              "status": "skipped",
+              "startedAt": null,
+              "finishedAt": null
+            },
+            {
+              "key": "health",
+              "label": "Health check",
+              "status": "skipped",
+              "startedAt": null,
+              "finishedAt": null
+            }
+          ],
+          "error": "Gateway did not become ready: port 18789 bind timed out"
+        }
+      }
+    },
+    "stopped": {
+      "statusResponse": {
+        "status": "stopped",
+        "subdomain": "agent endpoint (private)",
+        "container": {
+          "id": "c0ffee00-1111-4222-8333-444455556666",
+          "container_name": "openclaw-a1b2c3d4",
+          "port": 3100,
+          "subdomain": "agent endpoint (private)",
+          "status": "stopped",
+          "last_started_at": "2026-11-21T14:02:14.300Z",
+          "gateway_token": "gw_****",
+          "telegram_bot_token": null,
+          "telegram_connected": false,
+          "telegram_paired": false
+        }
+      },
+      "activity": {
+        "runs": [
+          {
+            "id": "run_7f3c2a91",
+            "action": "deploy",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:14.280Z",
+            "durationMs": 4280,
+            "steps": [
+              {
+                "key": "record",
+                "label": "Reserve port and create record",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.000Z",
+                "finishedAt": "2026-11-21T14:02:10.040Z"
+              },
+              {
+                "key": "network",
+                "label": "Prepare isolated network",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.040Z",
+                "finishedAt": "2026-11-21T14:02:10.660Z"
+              },
+              {
+                "key": "container",
+                "label": "Create OpenClaw container",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:10.660Z",
+                "finishedAt": "2026-11-21T14:02:12.370Z"
+              },
+              {
+                "key": "start",
+                "label": "Start agent gateway",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:12.370Z",
+                "finishedAt": "2026-11-21T14:02:13.490Z"
+              },
+              {
+                "key": "routing",
+                "label": "Configure routing",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:13.490Z",
+                "finishedAt": "2026-11-21T14:02:13.970Z"
+              },
+              {
+                "key": "health",
+                "label": "Health check",
+                "status": "success",
+                "startedAt": "2026-11-21T14:02:13.970Z",
+                "finishedAt": "2026-11-21T14:02:14.280Z"
+              }
+            ]
+          }
+        ]
+      }
+    }
+  },
+  "animationFrames": {
+    "note": "Step-by-step progression for animating the step list: each frame is the run after N completed steps.",
+    "frames": [
+      {
+        "id": "run_7f3c2a91",
+        "action": "deploy",
+        "status": "running",
+        "startedAt": "2026-11-21T14:02:10.000Z",
+        "finishedAt": null,
+        "durationMs": null,
+        "steps": [
+          {
+            "key": "record",
+            "label": "Reserve port and create record",
+            "status": "running",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": null
+          },
+          {
+            "key": "network",
+            "label": "Prepare isolated network",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "container",
+            "label": "Create OpenClaw container",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "start",
+            "label": "Start agent gateway",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "routing",
+            "label": "Configure routing",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "health",
+            "label": "Health check",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          }
+        ]
+      },
+      {
+        "id": "run_7f3c2a91",
+        "action": "deploy",
+        "status": "running",
+        "startedAt": "2026-11-21T14:02:10.000Z",
+        "finishedAt": null,
+        "durationMs": null,
+        "steps": [
+          {
+            "key": "record",
+            "label": "Reserve port and create record",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:10.040Z"
+          },
+          {
+            "key": "network",
+            "label": "Prepare isolated network",
+            "status": "running",
+            "startedAt": "2026-11-21T14:02:10.040Z",
+            "finishedAt": null
+          },
+          {
+            "key": "container",
+            "label": "Create OpenClaw container",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "start",
+            "label": "Start agent gateway",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "routing",
+            "label": "Configure routing",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "health",
+            "label": "Health check",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          }
+        ]
+      },
+      {
+        "id": "run_7f3c2a91",
+        "action": "deploy",
+        "status": "running",
+        "startedAt": "2026-11-21T14:02:10.000Z",
+        "finishedAt": null,
+        "durationMs": null,
+        "steps": [
+          {
+            "key": "record",
+            "label": "Reserve port and create record",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:10.040Z"
+          },
+          {
+            "key": "network",
+            "label": "Prepare isolated network",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.040Z",
+            "finishedAt": "2026-11-21T14:02:10.660Z"
+          },
+          {
+            "key": "container",
+            "label": "Create OpenClaw container",
+            "status": "running",
+            "startedAt": "2026-11-21T14:02:10.660Z",
+            "finishedAt": null
+          },
+          {
+            "key": "start",
+            "label": "Start agent gateway",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "routing",
+            "label": "Configure routing",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "health",
+            "label": "Health check",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          }
+        ]
+      },
+      {
+        "id": "run_7f3c2a91",
+        "action": "deploy",
+        "status": "running",
+        "startedAt": "2026-11-21T14:02:10.000Z",
+        "finishedAt": null,
+        "durationMs": null,
+        "steps": [
+          {
+            "key": "record",
+            "label": "Reserve port and create record",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:10.040Z"
+          },
+          {
+            "key": "network",
+            "label": "Prepare isolated network",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.040Z",
+            "finishedAt": "2026-11-21T14:02:10.660Z"
+          },
+          {
+            "key": "container",
+            "label": "Create OpenClaw container",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.660Z",
+            "finishedAt": "2026-11-21T14:02:12.370Z"
+          },
+          {
+            "key": "start",
+            "label": "Start agent gateway",
+            "status": "running",
+            "startedAt": "2026-11-21T14:02:12.370Z",
+            "finishedAt": null
+          },
+          {
+            "key": "routing",
+            "label": "Configure routing",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          },
+          {
+            "key": "health",
+            "label": "Health check",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          }
+        ]
+      },
+      {
+        "id": "run_7f3c2a91",
+        "action": "deploy",
+        "status": "running",
+        "startedAt": "2026-11-21T14:02:10.000Z",
+        "finishedAt": null,
+        "durationMs": null,
+        "steps": [
+          {
+            "key": "record",
+            "label": "Reserve port and create record",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:10.040Z"
+          },
+          {
+            "key": "network",
+            "label": "Prepare isolated network",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.040Z",
+            "finishedAt": "2026-11-21T14:02:10.660Z"
+          },
+          {
+            "key": "container",
+            "label": "Create OpenClaw container",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.660Z",
+            "finishedAt": "2026-11-21T14:02:12.370Z"
+          },
+          {
+            "key": "start",
+            "label": "Start agent gateway",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:12.370Z",
+            "finishedAt": "2026-11-21T14:02:13.490Z"
+          },
+          {
+            "key": "routing",
+            "label": "Configure routing",
+            "status": "running",
+            "startedAt": "2026-11-21T14:02:13.490Z",
+            "finishedAt": null
+          },
+          {
+            "key": "health",
+            "label": "Health check",
+            "status": "pending",
+            "startedAt": null,
+            "finishedAt": null
+          }
+        ]
+      },
+      {
+        "id": "run_7f3c2a91",
+        "action": "deploy",
+        "status": "running",
+        "startedAt": "2026-11-21T14:02:10.000Z",
+        "finishedAt": null,
+        "durationMs": null,
+        "steps": [
+          {
+            "key": "record",
+            "label": "Reserve port and create record",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:10.040Z"
+          },
+          {
+            "key": "network",
+            "label": "Prepare isolated network",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.040Z",
+            "finishedAt": "2026-11-21T14:02:10.660Z"
+          },
+          {
+            "key": "container",
+            "label": "Create OpenClaw container",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.660Z",
+            "finishedAt": "2026-11-21T14:02:12.370Z"
+          },
+          {
+            "key": "start",
+            "label": "Start agent gateway",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:12.370Z",
+            "finishedAt": "2026-11-21T14:02:13.490Z"
+          },
+          {
+            "key": "routing",
+            "label": "Configure routing",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:13.490Z",
+            "finishedAt": "2026-11-21T14:02:13.970Z"
+          },
+          {
+            "key": "health",
+            "label": "Health check",
+            "status": "running",
+            "startedAt": "2026-11-21T14:02:13.970Z",
+            "finishedAt": null
+          }
+        ]
+      },
+      {
+        "id": "run_7f3c2a91",
+        "action": "deploy",
+        "status": "success",
+        "startedAt": "2026-11-21T14:02:10.000Z",
+        "finishedAt": "2026-11-21T14:02:14.280Z",
+        "durationMs": 4280,
+        "steps": [
+          {
+            "key": "record",
+            "label": "Reserve port and create record",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.000Z",
+            "finishedAt": "2026-11-21T14:02:10.040Z"
+          },
+          {
+            "key": "network",
+            "label": "Prepare isolated network",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.040Z",
+            "finishedAt": "2026-11-21T14:02:10.660Z"
+          },
+          {
+            "key": "container",
+            "label": "Create OpenClaw container",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:10.660Z",
+            "finishedAt": "2026-11-21T14:02:12.370Z"
+          },
+          {
+            "key": "start",
+            "label": "Start agent gateway",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:12.370Z",
+            "finishedAt": "2026-11-21T14:02:13.490Z"
+          },
+          {
+            "key": "routing",
+            "label": "Configure routing",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:13.490Z",
+            "finishedAt": "2026-11-21T14:02:13.970Z"
+          },
+          {
+            "key": "health",
+            "label": "Health check",
+            "status": "success",
+            "startedAt": "2026-11-21T14:02:13.970Z",
+            "finishedAt": "2026-11-21T14:02:14.280Z"
+          }
+        ]
+      }
+    ]
+  }
+}

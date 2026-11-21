@@ -1,0 +1,25 @@
+{
+  "component": "StatusBadge / StatusIcon (shared)",
+  "props": {
+    "status": "'pending' | 'running' | 'success' | 'error' | 'skipped'",
+    "label": "string | undefined (overrides default text)",
+    "size": "StatusIcon only, px"
+  },
+  "states": {
+    "pending": {
+      "status": "pending"
+    },
+    "running": {
+      "status": "running"
+    },
+    "success": {
+      "status": "success"
+    },
+    "error": {
+      "status": "error"
+    },
+    "skipped": {
+      "status": "skipped"
+    }
+  }
+}

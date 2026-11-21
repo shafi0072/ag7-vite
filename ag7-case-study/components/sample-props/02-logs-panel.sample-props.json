@@ -1,0 +1,90 @@
+{
+  "component": "LogsPanel",
+  "props": {
+    "lines": "string[] — '<ISO timestamp> <message>'; timestamp is shown as local time, [error]/[warn]/[health] lines are colour-coded",
+    "live": "boolean",
+    "onToggleLive": "() => void",
+    "error": "string | undefined",
+    "onRetry": "(() => void) | undefined"
+  },
+  "frame": {
+    "width": 900,
+    "height": 520
+  },
+  "states": {
+    "live": {
+      "lines": [
+        "2026-11-21T14:02:14.300Z [entrypoint] Booting OpenClaw gateway",
+        "2026-11-21T14:02:14.700Z [config] Model provider: moonshot (kimi) — key loaded from env (redacted)",
+        "2026-11-21T14:02:15.200Z [memory] Mounted memory volume at /data/memory",
+        "2026-11-21T14:02:15.600Z [gateway] Listening on 0.0.0.0:18789 (bind=lan)",
+        "2026-11-21T14:02:15.900Z [skills] Loaded 4 skills: heartbeat, brain, search, calendar",
+        "2026-11-21T14:02:16.400Z [telegram] Channel enabled, polling for updates",
+        "2026-11-21T14:02:16.800Z [health] Ready",
+        "2026-11-21T14:02:44.300Z [heartbeat] ok (uptime 30s)",
+        "2026-11-21T14:02:57.000Z [telegram] Message from chat ****8812 — routing to agent",
+        "2026-11-21T14:02:59.200Z [agent] Planned 4 calendar blocks for today",
+        "2026-11-21T14:02:59.500Z [telegram] Reply sent (312 chars)",
+        "2026-11-21T14:03:14.300Z [heartbeat] ok (uptime 60s)",
+        "2026-11-21T14:03:25.700Z [warn] Model latency 4.8s above 4s target",
+        "2026-11-21T14:03:44.300Z [heartbeat] ok (uptime 90s)"
+      ],
+      "live": true
+    },
+    "paused": {
+      "lines": [
+        "2026-11-21T14:02:14.300Z [entrypoint] Booting OpenClaw gateway",
+        "2026-11-21T14:02:14.700Z [config] Model provider: moonshot (kimi) — key loaded from env (redacted)",
+        "2026-11-21T14:02:15.200Z [memory] Mounted memory volume at /data/memory",
+        "2026-11-21T14:02:15.600Z [gateway] Listening on 0.0.0.0:18789 (bind=lan)",
+        "2026-11-21T14:02:15.900Z [skills] Loaded 4 skills: heartbeat, brain, search, calendar",
+        "2026-11-21T14:02:16.400Z [telegram] Channel enabled, polling for updates",
+        "2026-11-21T14:02:16.800Z [health] Ready",
+        "2026-11-21T14:02:44.300Z [heartbeat] ok (uptime 30s)",
+        "2026-11-21T14:02:57.000Z [telegram] Message from chat ****8812 — routing to agent",
+        "2026-11-21T14:02:59.200Z [agent] Planned 4 calendar blocks for today",
+        "2026-11-21T14:02:59.500Z [telegram] Reply sent (312 chars)",
+        "2026-11-21T14:03:14.300Z [heartbeat] ok (uptime 60s)",
+        "2026-11-21T14:03:25.700Z [warn] Model latency 4.8s above 4s target",
+        "2026-11-21T14:03:44.300Z [heartbeat] ok (uptime 90s)"
+      ],
+      "live": false
+    },
+    "empty": {
+      "lines": [],
+      "live": true
+    },
+    "error": {
+      "lines": [
+        "2026-11-21T14:02:14.300Z [entrypoint] Booting OpenClaw gateway",
+        "2026-11-21T14:02:14.700Z [config] Model provider: moonshot (kimi) — key loaded from env (redacted)",
+        "2026-11-21T14:02:15.200Z [memory] Mounted memory volume at /data/memory",
+        "2026-11-21T14:02:15.600Z [gateway] Listening on 0.0.0.0:18789 (bind=lan)",
+        "2026-11-21T14:02:15.900Z [skills] Loaded 4 skills: heartbeat, brain, search, calendar",
+        "2026-11-21T14:02:16.400Z [telegram] Channel enabled, polling for updates",
+        "2026-11-21T14:02:16.800Z [health] Ready"
+      ],
+      "live": false,
+      "error": "Can't reach the AG7 server. Check your connection."
+    }
+  },
+  "streamingOrder": {
+    "note": "Reveal lines one at a time for a streaming effect; delays in ms between lines.",
+    "delaysMs": [
+      0,
+      400,
+      500,
+      400,
+      300,
+      500,
+      400,
+      900,
+      700,
+      500,
+      300,
+      900,
+      600,
+      900
+    ]
+  }
+}

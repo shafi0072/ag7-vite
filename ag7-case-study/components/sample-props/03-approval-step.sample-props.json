@@ -1,0 +1,60 @@
+{
+  "component": "ConfirmDialog (approval step before destructive actions)",
+  "props": {
+    "open": "boolean",
+    "title": "string",
+    "description": "string",
+    "effects": "string[] (what will happen)",
+    "confirmLabel": "string",
+    "destructive": "boolean",
+    "busy": "boolean",
+    "onConfirm": "() => void",
+    "onCancel": "() => void"
+  },
+  "frame": {
+    "width": 800,
+    "height": 520,
+    "note": "Dialog is position:fixed with a full-screen blurred backdrop"
+  },
+  "states": {
+    "redeploy": {
+      "open": true,
+      "title": "Redeploy your agent?",
+      "description": "The failed container will be removed and a fresh one provisioned.",
+      "effects": [
+        "Removes the current container record",
+        "Provisions a new isolated container",
+        "Your memory volume is kept"
+      ],
+      "confirmLabel": "Redeploy",
+      "destructive": false,
+      "busy": false
+    },
+    "delete": {
+      "open": true,
+      "title": "Delete your agent?",
+      "description": "This permanently removes the container. You can deploy a new one afterwards.",
+      "effects": [
+        "Stops and removes the OpenClaw container",
+        "Removes its routing rule",
+        "Disconnects any Telegram channel"
+      ],
+      "confirmLabel": "Delete agent",
+      "destructive": true,
+      "busy": false
+    },
+    "approving": {
+      "open": true,
+      "title": "Redeploy your agent?",
+      "description": "The failed container will be removed and a fresh one provisioned.",
+      "effects": [
+        "Removes the current container record",
+        "Provisions a new isolated container",
+        "Your memory volume is kept"
+      ],
+      "confirmLabel": "Redeploy",
+      "destructive": false,
+      "busy": true
+    }
+  }
+}

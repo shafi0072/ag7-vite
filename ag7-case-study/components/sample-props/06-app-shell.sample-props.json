@@ -1,0 +1,51 @@
+{
+  "component": "Topbar + Sidebar (app shell for the final zoom-out)",
+  "propsNote": "Neither takes props. Sidebar highlights the item matching the current route; Topbar is static UI (system toggles, search, notifications, avatar).",
+  "frame": {
+    "width": 1920,
+    "height": 1080
+  },
+  "states": {
+    "home": {
+      "route": "/"
+    },
+    "activity": {
+      "route": "/activity"
+    }
+  },
+  "navItems": [
+    {
+      "label": "Home",
+      "href": "/"
+    },
+    {
+      "label": "Chat",
+      "href": "/chat"
+    },
+    {
+      "label": "Tasks",
+      "href": "/tasks"
+    },
+    {
+      "label": "Calendar",
+      "href": "/calendar"
+    },
+    {
+      "label": "Activity",
+      "href": "/activity"
+    },
+    {
+      "label": "Settings",
+      "href": "/settings",
+      "group": "bottom"
+    },
+    {
+      "label": "Logout",
+      "group": "bottom"
+    }
+  ],
+  "topbar": {
+    "searchPlaceholder": "Enter your search request",
+    "avatar": "Use a neutral placeholder; the app's avatar photo is not exported"
+  }
+}

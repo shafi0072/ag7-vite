@@ -1,0 +1,79 @@
+{
+  "component": "ContainerPanel 'Running' state (closest match to a result card; AG7 has no PR/diff concept)",
+  "propsNote": "Same API shape as 01-status-card. Use with the RunHistory expanded row (05) for a 'what happened' summary.",
+  "frame": {
+    "width": 440,
+    "height": 250
+  },
+  "states": {
+    "success": {
+      "statusResponse": {
+        "status": "running",
+        "subdomain": "agent endpoint (private)",
+        "container": {
+          "id": "c0ffee00-1111-4222-8333-444455556666",
+          "container_name": "openclaw-a1b2c3d4",
+          "port": 3100,
+          "subdomain": "agent endpoint (private)",
+          "status": "running",
+          "last_started_at": "2026-11-21T14:02:14.300Z",
+          "gateway_token": "gw_****",
+          "telegram_bot_token": null,
+          "telegram_connected": false,
+          "telegram_paired": false
+        }
+      },
+      "summary": {
+        "stepsCompleted": 6,
+        "stepsTotal": 6,
+        "durationMs": 4280,
+        "containerName": "openclaw-a1b2c3d4",
+        "channels": [
+          "Web chat"
+        ]
+      }
+    },
+    "success-telegram": {
+      "statusResponse": {
+        "status": "running",
+        "subdomain": "agent endpoint (private)",
+        "container": {
+          "id": "c0ffee00-1111-4222-8333-444455556666",
+          "container_name": "openclaw-a1b2c3d4",
+          "port": 3100,
+          "subdomain": "agent endpoint (private)",
+          "status": "running",
+          "last_started_at": "2026-11-21T14:02:14.300Z",
+          "gateway_token": "gw_****",
+          "telegram_bot_token": "7012345678:****",
+          "telegram_connected": true,
+          "telegram_paired": false
+        }
+      },
+      "summary": {
+        "channels": [
+          "Web chat",
+          "Telegram"
+        ]
+      }
+    },
+    "stopped": {
+      "statusResponse": {
+        "status": "stopped",
+        "subdomain": "agent endpoint (private)",
+        "container": {
+          "id": "c0ffee00-1111-4222-8333-444455556666",
+          "container_name": "openclaw-a1b2c3d4",
+          "port": 3100,
+          "subdomain": "agent endpoint (private)",
+          "status": "stopped",
+          "last_started_at": "2026-11-21T14:02:14.300Z",
+          "gateway_token": "gw_****",
+          "telegram_bot_token": null,
+          "telegram_connected": false,
+          "telegram_paired": false
+        }
+      }
+    }
+  }
+}
