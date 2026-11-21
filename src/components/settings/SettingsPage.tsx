@@ -4,7 +4,7 @@ import { useState, useRef, useEffect } from "react";
 import { Check, Plus, ChevronDown, User, Layers, Copy, X } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import i18n from "@/lib/i18n";
-import { api } from "@/lib/api";
+import { api, IS_DEMO } from "@/lib/api";
 import EditProfileModal from "./EditProfileModal";
 import AddEmailModal from "./AddEmailModal";
 
@@ -226,8 +226,10 @@ export default function SettingsPage() {
     setTelegramStatusMsg("Verifying token...");
     try {
       // Verify the token with Telegram API
-      const res = await fetch(`https://api.telegram.org/bot${token}/getMe`);
-      const data = await res.json();
+      // Demo mode skips the live Telegram check (no external calls).
+      const data = IS_DEMO
+        ? { ok: true }
+        : await (await fetch(`https://api.telegram.org/bot${token}/getMe`)).json();
       if (!data.ok) {
         setTelegramError("Invalid bot token. Please check and try again.");
         setTelegramSaving(false);
@@ -240,7 +242,7 @@ export default function SettingsPage() {
       await api.containers.connectTelegram(token);
       setTelegramStatusMsg("Starting Telegram channel...");
       // Wait 30s for container to fully restart and configure Telegram channel
-      await new Promise((r) => setTimeout(r, 30000));
+      await new Promise((r) => setTimeout(r, IS_DEMO ? 1500 : 30000));
       setTelegramStatusMsg("");
       setTelegramConnected(true);
       setIsTelegramModalOpen(false);

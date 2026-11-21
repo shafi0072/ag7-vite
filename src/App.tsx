@@ -14,20 +14,21 @@ import Settings from '@/pages/Settings'
 import Login from '@/pages/Login'
 import Signup from '@/pages/Signup'
 import Onboarding from '@/pages/Onboarding'
+import Activity from '@/pages/Activity'
+import DemoBadge from '@/components/layout/DemoBadge'
+
+// Set VITE_AUTH_DISABLED=true to open every page without login (design previews only).
+const AUTH_DISABLED = import.meta.env.VITE_AUTH_DISABLED === 'true'
 
 function ProtectedRoute({ children }: { children: React.ReactNode }) {
   const token = localStorage.getItem('ag7_token')
-  if (!token) {
-    return <Navigate to="/login" replace />
-  }
+  if (!AUTH_DISABLED && !token) return <Navigate to="/login" replace />
   return <>{children}</>
 }
 
 function PublicRoute({ children }: { children: React.ReactNode }) {
   const token = localStorage.getItem('ag7_token')
-  if (token) {
-    return <Navigate to="/" replace />
-  }
+  if (!AUTH_DISABLED && token) return <Navigate to="/" replace />
   return <>{children}</>
 }
 
@@ -128,12 +129,14 @@ function AppRoutes() {
   return (
     <ProtectedRoute>
       <DashboardLayout>
+        <DemoBadge />
         <Routes>
           <Route path="/" element={<Dashboard />} />
           <Route path="/chat" element={<Chat />} />
           <Route path="/tasks" element={<Tasks />} />
           <Route path="/calendar" element={<Calendar />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="/activity" element={<Activity />} />
           <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </DashboardLayout>

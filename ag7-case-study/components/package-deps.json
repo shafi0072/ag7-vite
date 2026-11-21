@@ -1,0 +1,44 @@
+{
+  "note": "Ranges from package.json; 'installed' is the exact version in node_modules on case-study-demo.",
+  "dependencies": {
+    "react": "^18.3.0",
+    "react-dom": "^18.3.0",
+    "lucide-react": "^1.7.0",
+    "clsx": "^2.1.1",
+    "tailwind-merge": "^3.5.0",
+    "class-variance-authority": "^0.7.1",
+    "react-router-dom": "^6.22.0",
+    "react-i18next": "^17.0.2",
+    "i18next": "^26.0.3"
+  },
+  "devDependencies": {
+    "tailwindcss": "^3.4.1",
+    "postcss": "^8.4.38",
+    "autoprefixer": "^10.4.19",
+    "typescript": "^5.4.0"
+  },
+  "installed": {
+    "lucide-react": "1.7.0",
+    "react": "18.3.1",
+    "tailwindcss": "3.4.19",
+    "clsx": "2.1.1",
+    "tailwind-merge": "3.5.0"
+  },
+  "iconLibrary": {
+    "name": "lucide-react",
+    "range": "^1.7.0",
+    "installed": "1.7.0",
+    "customInlineSvgIcons": "Sidebar.tsx (Home, Chat, Tasks, Calendar, Activity, Settings, Logout) and Topbar.tsx draw their own inline SVGs"
+  },
+  "font": {
+    "family": "Inter",
+    "weights": [
+      300,
+      400,
+      500,
+      600,
+      700
+    ],
+    "source": "Google Fonts (index.html)"
+  }
+}

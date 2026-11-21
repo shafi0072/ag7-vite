@@ -18,6 +18,7 @@ export interface ContainerRecord {
   port: number;
   subdomain: string;
   kimi_api_key: string;
+  gateway_token?: string | null;
   telegram_bot_token: string | null;
   telegram_paired: boolean;
   created_at: string;

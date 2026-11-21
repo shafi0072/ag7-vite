@@ -1,0 +1,47 @@
+{
+  "note": "Design tokens used by the AG7 UI. From tailwind.config.ts, global.css and recurring arbitrary values in the components. Dark-only app (no light theme).",
+  "colors": {
+    "bg": "#0a0a0a",
+    "app-shell-bg": "#0F0F0F",
+    "surface": "#111111",
+    "surface-hover": "#1a1a1a",
+    "border": "#222222",
+    "accent": "#e8612a",
+    "accent-glow": "#FF7439",
+    "text-primary": "#ffffff",
+    "text-secondary": "#6b6b6b",
+    "sidebar-bg": "#0d0d0d",
+    "nav-pill-bg": "#FFFFFF1A",
+    "status": {
+      "success": "tailwind green-400 #4ade80 / green-500 #22c55e",
+      "error": "tailwind red-400 #f87171 / red-500 #ef4444",
+      "warning": "tailwind yellow-300 #fde047 / yellow-400 #facc15",
+      "running": "accent #e8612a",
+      "badge-bg-opacity": "10% fill, 20-30% border (e.g. bg-green-500/10 border-green-500/20)"
+    }
+  },
+  "radius": { "card": "16px", "btn": "12px", "pill": "9999px", "nav-group": "35px", "nav-item": "24px", "chat-bubble": "16px (rounded-2xl)" },
+  "shadows": {
+    "card": "0 0 0 1px #1f1f1f",
+    "nav-group": "0 0 30px rgba(0,0,0,0.3)",
+    "nav-active": "0 0 15px rgba(232,97,42,0.3)",
+    "dialog": "tailwind shadow-2xl"
+  },
+  "effects": {
+    "shell-glow": "180x180 circle #FF7439, blur(200px), mix-blend-mode: screen, top 36px left 564px",
+    "auth-glow": "422x422 circle #FF7439, opacity 0.25, blur(200px)",
+    "dialog-backdrop": "bg-black/60 + backdrop-blur-sm"
+  },
+  "typography": {
+    "fontFamily": "Inter, sans-serif",
+    "weights": [300, 400, 500, 600, 700],
+    "sizes": { "micro": "10px", "small": "11px", "xs": "12px", "sm": "14px", "base": "16px", "page-title": "24px (text-2xl)", "hero": "30px (text-3xl)" },
+    "mono": "ui-monospace (tailwind font-mono) for logs, 11px / 20px line-height",
+    "numbers": "tabular-nums for timers and metrics"
+  },
+  "motion": {
+    "transitions": "transition-colors duration-200; progress bar transition-all duration-500",
+    "spinners": "lucide Loader2 + animate-spin",
+    "live-dot": "animate-pulse"
+  }
+}

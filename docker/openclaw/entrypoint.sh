@@ -19,7 +19,7 @@ cat > "$OPENCLAW_CONFIG_DIR/.openclaw/openclaw.json" <<CONF
     },
     "auth": {
       "mode": "token",
-      "token": "$KIMI_API_KEY"
+      "token": "${GATEWAY_TOKEN:-$KIMI_API_KEY}"
     }
   },
   "env": {

@@ -63,6 +63,16 @@ function CalendarIcon() {
 }
 
 
+function ActivityIcon() {
+  return (
+    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <g opacity="0.9">
+        <path d="M2 12H6L9 4L15 20L18 12H22" stroke="white" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+      </g>
+    </svg>
+  );
+}
+
 export default function Sidebar() {
   const { pathname } = useLocation();
   const navigate = useNavigate();
@@ -73,6 +83,7 @@ export default function Sidebar() {
     { icon: ChatIcon, href: "/chat", label: t("nav.chat") },
     { icon: TasksIcon, href: "/tasks", label: t("nav.tasks") },
     { icon: CalendarIcon, href: "/calendar", label: t("nav.calendar") },
+    { icon: ActivityIcon, href: "/activity", label: t("nav.activity", "Activity") },
   ];
 
   const bottomNavItems = [
