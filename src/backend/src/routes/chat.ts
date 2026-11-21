@@ -1,6 +1,8 @@
 import { Router, Response, NextFunction } from "express";
 import { requireAuth } from "../middleware/auth";
 import { AuthenticatedRequest } from "../types";
+import { DEMO_MODE } from "../config/env";
+import { mockChatReply } from "../demo/mockLlm";
 
 const router = Router();
 
@@ -14,6 +16,12 @@ router.post(
 
       if (!messages || !Array.isArray(messages) || messages.length === 0) {
         res.status(400).json({ error: "messages array is required" });
+        return;
+      }
+
+      if (DEMO_MODE) {
+        // Demo: canned assistant reply, no LLM call.
+        res.json({ reply: await mockChatReply(messages) });
         return;
       }
 

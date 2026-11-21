@@ -22,3 +22,7 @@ src/backend/.env
 src/backend/nginx/ssl/*.crt
 src/backend/nginx/ssl/*.key
 src/backend/.env.production
+
+# demo env is safe placeholder data
+!src/backend/.env.demo
+!.env.demo

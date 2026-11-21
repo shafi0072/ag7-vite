@@ -287,6 +287,8 @@ interface Message {
   text: string;
   sender: "user" | "bot";
   time: string;
+  /** Set on the error bubble so the user can retry the last request. */
+  failed?: boolean;
 }
 
 export default function ChatPage() {
@@ -318,16 +320,18 @@ export default function ChatPage() {
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
 
-    // Send to AI backend
-    setIsTyping(true);
     const chatHistory = [
-      ...messages.map((m) => ({
+      ...messages.filter((m) => !m.failed).map((m) => ({
         role: m.sender === "user" ? "user" as const : "assistant" as const,
         content: m.text,
       })),
       { role: "user" as const, content: text },
     ];
+    sendToAI(chatHistory);
+  }
 
+  function sendToAI(chatHistory: { role: "user" | "assistant"; content: string }[]) {
+    setIsTyping(true);
     api.chat
       .send(chatHistory)
       .then((data) => {
@@ -343,15 +347,27 @@ export default function ChatPage() {
         console.error("Chat error:", err);
         const errorMsg: Message = {
           id: (Date.now() + 1).toString(),
-          text: "Sorry, I couldn't process your request. Please try again.",
+          text: err instanceof Error && err.message ? `Couldn't get a reply: ${err.message}` : "Sorry, I couldn't process your request.",
           sender: "bot",
           time: getTime(),
+          failed: true,
         };
         setMessages((prev) => [...prev, errorMsg]);
       })
       .finally(() => {
         setIsTyping(false);
       });
+  }
+
+  function handleRetry(failedId: string) {
+    const remaining = messages.filter((m) => m.id !== failedId);
+    setMessages(remaining);
+    sendToAI(
+      remaining.filter((m) => !m.failed).map((m) => ({
+        role: m.sender === "user" ? "user" as const : "assistant" as const,
+        content: m.text,
+      }))
+    );
   }
 
   function handleKeyDown(e: React.KeyboardEvent) {
@@ -459,10 +475,21 @@ export default function ChatPage() {
             <div
               className={`max-w-[70%] rounded-2xl px-4 py-3 ${msg.sender === "user"
                 ? "bg-accent text-white rounded-br-md"
-                : "bg-surface border border-border text-white rounded-bl-md"
+                : msg.failed
+                  ? "bg-red-500/10 border border-red-500/20 text-red-300 rounded-bl-md"
+                  : "bg-surface border border-border text-white rounded-bl-md"
                 }`}
             >
-              <p className="text-sm">{msg.text}</p>
+              <p className="text-sm whitespace-pre-line">{msg.text}</p>
+              {msg.failed && (
+                <button
+                  onClick={() => handleRetry(msg.id)}
+                  disabled={isTyping}
+                  className="mt-2 px-3 py-1 rounded-btn bg-white/10 text-white text-xs hover:bg-white/15 disabled:opacity-50"
+                >
+                  Retry
+                </button>
+              )}
               <p
                 className={`text-[10px] mt-1.5 ${msg.sender === "user" ? "text-white/60" : "text-text-secondary"
                   }`}

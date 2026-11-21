@@ -6,6 +6,9 @@ import {
   reloadNginx,
 } from "./nginxService";
 import { ContainerRecord, ContainerStatus } from "../types";
+import { randomBytes } from "crypto";
+import { DEMO_MODE } from "../config/env";
+import { Run, startRun, step, finishRun } from "./activityLog";
 
 const PORT_START = parseInt(process.env.PORT_START || "3100", 10);
 const KIMI_API_KEY = process.env.KIMI_API_KEY || "";
@@ -27,7 +30,7 @@ async function findAvailablePort(): Promise<number> {
     .select("port")
     .order("port", { ascending: true });
 
-  const usedPorts = new Set((containers || []).map((c) => c.port));
+  const usedPorts = new Set((containers || []).map((c: { port: number }) => c.port));
   let port = PORT_START;
 
   while (usedPorts.has(port)) {
@@ -61,97 +64,128 @@ export async function getUserContainer(
   return data as ContainerRecord;
 }
 
-export async function deploy(userId: string): Promise<ContainerRecord> {
+export const DEPLOY_STEPS = [
+  { key: "record", label: "Reserve port and create record" },
+  { key: "network", label: "Prepare isolated network" },
+  { key: "container", label: "Create OpenClaw container" },
+  { key: "start", label: "Start agent gateway" },
+  { key: "routing", label: "Configure routing" },
+  { key: "health", label: "Health check" },
+];
+
+/** Per-container token for the OpenClaw control UI (never the shared LLM key). */
+function newGatewayToken(): string {
+  return `gw_${randomBytes(24).toString("hex")}`;
+}
+
+function containerEnv(userId: string, gatewayToken: string, telegramToken?: string): string[] {
+  return [
+    `KIMI_API_KEY=${KIMI_API_KEY}`,
+    `GATEWAY_TOKEN=${gatewayToken}`,
+    `USER_ID=${userId}`,
+    `MEMORY_PATH=/data/memory/${userId}`,
+    ...(telegramToken ? [`TELEGRAM_BOT_TOKEN=${telegramToken}`] : []),
+  ];
+}
+
+/**
+ * Starts a deploy and returns immediately with status "creating".
+ * The provisioning steps run in the background and are recorded in run
+ * history so the dashboard can poll progress instead of blocking for 30s.
+ */
+export async function deploy(userId: string): Promise<{ container: ContainerRecord; run: Run }> {
   // Check if user already has a container
   const existing = await getUserContainer(userId);
   if (existing) {
     throw new Error("User already has a deployed container");
   }
 
-  const port = await findAvailablePort();
-  const shortId = userId.slice(0, 8);
-  const containerName = `openclaw-${shortId}`;
-  const subdomain = `${shortId}.${BASE_DOMAIN}`;
+  const run = startRun(userId, "deploy", DEPLOY_STEPS);
 
-  // Create DB record first with 'creating' status
-  const { data: record, error: dbError } = await supabase
-    .from("containers")
-    .insert({
-      user_id: userId,
-      container_id: "",
-      container_name: containerName,
-      status: "creating" as ContainerStatus,
-      port,
-      subdomain,
-      kimi_api_key: KIMI_API_KEY,
-    })
-    .select()
-    .single();
-
-  if (dbError || !record) {
-    throw new Error(`Failed to create container record: ${dbError?.message}`);
+  let record: ContainerRecord;
+  try {
+    record = await step(run, "record", async () => {
+      const port = await findAvailablePort();
+      const shortId = userId.slice(0, 8);
+      const { data, error } = await supabase
+        .from("containers")
+        .insert({
+          user_id: userId,
+          container_id: "",
+          container_name: `openclaw-${shortId}`,
+          status: "creating" as ContainerStatus,
+          port,
+          subdomain: `${shortId}.${BASE_DOMAIN}`,
+          kimi_api_key: KIMI_API_KEY,
+          gateway_token: newGatewayToken(),
+        })
+        .select()
+        .single();
+      if (error || !data) throw new Error(`Failed to create container record: ${error?.message}`);
+      return data as ContainerRecord;
+    });
+  } catch (err) {
+    finishRun(run, err);
+    throw err;
   }
 
+  provision(userId, record, run).catch(() => {
+    /* errors are captured in run history and container status */
+  });
+
+  return { container: record, run };
+}
+
+async function provision(userId: string, record: ContainerRecord, run: Run): Promise<void> {
   try {
-    await ensureNetwork();
+    await step(run, "network", ensureNetwork);
 
-    // Remove any leftover Docker container with the same name
-    try {
-      const old = docker.getContainer(containerName);
-      await old.stop().catch(() => {});
-      await old.remove({ force: true });
-    } catch {
-      // No existing container, safe to proceed
-    }
-
-    // Create Docker container
-    const container = await docker.createContainer({
-      Image: IMAGE_NAME,
-      name: containerName,
-      Env: [
-        `KIMI_API_KEY=${KIMI_API_KEY}`,
-        `USER_ID=${userId}`,
-        `MEMORY_PATH=/data/memory/${userId}`,
-      ],
-      ExposedPorts: { "18789/tcp": {} },
-      HostConfig: {
-        PortBindings: {
-          "18789/tcp": [{ HostPort: String(port) }],
+    const container = await step(run, "container", async () => {
+      // Remove any leftover Docker container with the same name
+      try {
+        const old = docker.getContainer(record.container_name);
+        await old.stop().catch(() => {});
+        await old.remove({ force: true });
+      } catch {
+        // No existing container, safe to proceed
+      }
+      return docker.createContainer({
+        Image: IMAGE_NAME,
+        name: record.container_name,
+        Env: containerEnv(userId, record.gateway_token || newGatewayToken()),
+        ExposedPorts: { "18789/tcp": {} },
+        HostConfig: {
+          PortBindings: { "18789/tcp": [{ HostPort: String(record.port) }] },
+          Binds: [`memory_data:/data/memory`],
+          RestartPolicy: { Name: "unless-stopped" },
+          NetworkMode: NETWORK_NAME,
         },
-        Binds: [`memory_data:/data/memory`],
-        RestartPolicy: { Name: "unless-stopped" },
-        NetworkMode: NETWORK_NAME,
-      },
+      });
     });
 
-    // Start the container
-    await container.start();
+    await step(run, "start", async () => {
+      await container.start();
+      await supabase
+        .from("containers")
+        .update({ container_id: container.id, last_started_at: new Date().toISOString() })
+        .eq("id", record.id);
+    });
 
-    const dockerId = container.id;
+    await step(run, "routing", async () => {
+      await generateNginxConfig(userId, record.port);
+      await reloadNginx();
+    });
 
-    // Update DB with Docker container ID and running status
-    await supabase
-      .from("containers")
-      .update({
-        container_id: dockerId,
-        status: "running" as ContainerStatus,
-        last_started_at: new Date().toISOString(),
-      })
-      .eq("id", record.id);
+    await step(run, "health", async () => {
+      const info = await container.inspect();
+      if (!info.State.Running) throw new Error("Container exited during startup");
+      await updateContainerStatus(record.id, "running");
+    });
 
-    // Generate Nginx config and reload
-    await generateNginxConfig(userId, port);
-    await reloadNginx();
-
-    return {
-      ...record,
-      container_id: dockerId,
-      status: "running",
-      last_started_at: new Date().toISOString(),
-    } as ContainerRecord;
+    finishRun(run);
   } catch (err) {
-    // Update status to error on failure
     await updateContainerStatus(record.id, "error");
+    finishRun(run, err);
     throw err;
   }
 }
@@ -230,6 +264,12 @@ export async function getStatus(userId: string): Promise<{
 
   if (!record) {
     return { status: "not_deployed", subdomain: null, container: null };
+  }
+
+  // While a deploy is still provisioning there is no Docker container yet.
+  if (record.status === "creating") {
+    const currentSubdomain = `${record.user_id.slice(0, 8)}.${BASE_DOMAIN}`;
+    return { status: "creating", subdomain: currentSubdomain, container: { ...record, subdomain: currentSubdomain } };
   }
 
   // Sync status with actual Docker state
@@ -317,12 +357,7 @@ export async function setTelegramToken(
   const container = await docker.createContainer({
     Image: IMAGE_NAME,
     name: record.container_name,
-    Env: [
-      `KIMI_API_KEY=${KIMI_API_KEY}`,
-      `USER_ID=${userId}`,
-      `MEMORY_PATH=/data/memory/${userId}`,
-      `TELEGRAM_BOT_TOKEN=${botToken}`,
-    ],
+    Env: containerEnv(userId, record.gateway_token || newGatewayToken(), botToken),
     ExposedPorts: { "18789/tcp": {} },
     HostConfig: {
       PortBindings: {
@@ -354,6 +389,13 @@ export async function approveTelegramPairing(
 ): Promise<{ message: string }> {
   const record = await getUserContainer(userId);
   if (!record) throw new Error("No container found for user");
+
+  if (DEMO_MODE) {
+    // Demo: no real container to exec into; accept 6-8 char codes.
+    if (!/^[A-Z0-9]{6,8}$/i.test(pairingCode)) throw new Error("Invalid or expired pairing code. Send /start to your bot again to get a new code.");
+    await supabase.from("containers").update({ telegram_paired: true }).eq("id", record.id);
+    return { message: "Telegram pairing approved successfully" };
+  }
 
   const { execSync } = require("child_process");
   try {
@@ -394,4 +436,38 @@ export async function removeTelegramToken(userId: string): Promise<void> {
   } catch {
     // ignore if container not running
   }
+}
+
+/** Last N lines of the agent container's logs. */
+export async function getLogs(userId: string, tail = 200): Promise<string[]> {
+  const record = await getUserContainer(userId);
+  if (!record || !record.container_id) return [];
+  try {
+    const buf: Buffer = (await docker.getContainer(record.container_id).logs({
+      stdout: true, stderr: true, tail, timestamps: true,
+    } as any)) as unknown as Buffer;
+    // Docker multiplexes stdout/stderr with 8-byte frame headers; strip them.
+    const text = buf.toString("utf-8").replace(/[\x00-\x08]/g, "");
+    return redact(text).split("\n").filter(Boolean).slice(-tail);
+  } catch {
+    return [];
+  }
+}
+
+/** Remove anything that looks like a key or token before it leaves the API. */
+export function redact(text: string): string {
+  return text
+    .replace(/\b(sk|gw)[-_][A-Za-z0-9]{12,}\b/g, "$1_****")
+    .replace(/\b\d{6,}:[A-Za-z0-9_-]{30,}\b/g, "****:telegram-token");
+}
+
+/** Client-safe view of a container record: no shared LLM key, masked bot token. */
+export function toPublic(record: ContainerRecord | null) {
+  if (!record) return null;
+  const { kimi_api_key: _k, telegram_bot_token, ...rest } = record;
+  return {
+    ...rest,
+    telegram_connected: !!telegram_bot_token,
+    telegram_bot_token: telegram_bot_token ? `${telegram_bot_token.split(":")[0]}:****` : null,
+  };
 }
